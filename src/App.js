@@ -1,31 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
 const App = () => {
-  const name = 'World';
+  let name = 'World';
+
+  // hier wird kein dynamisches Binding verwendet
+  setTimeout(() => {
+    name = 'Peter';
+    console.log('Async done');
+  }, 1000);
+
   // JSX => { => aktiviert JavaScript
-  return <div>Hello {name}</div>
+  return <div>Hello {name + 1}</div>
 }
 
 export default App;
