@@ -36,12 +36,28 @@ const TodoList = () => {
                     title: newTodo,
                     done: false,
                 }
-                setTodos([...todos, myBrandNewTodo]);
+                // to make sure the state we change is the current one => and it wasn't change in between
+                setTodos((prevState) => [...prevState, myBrandNewTodo]);
                 setNewTodo('');
             }}>Ok</button>
 
             {todos.map((todo) => {
-                return <div key={todo.id}>{todo.title}</div>
+                // react uses the "key"-prop to save resources
+                // => if it rerenderes a component it will check based on the key if an element was changed
+                return (
+                    <div key={todo.id}>
+                        {todo.title}
+                        <input type="checkbox" checked={todo.done} onChange={(event => {
+                            const checked = event.currentTarget.checked;
+                            setTodos((prevState) => prevState.map(t => {
+                                if(t.id === todo.id ) {
+                                    t.done = checked;
+                                }
+                                return t;
+                            }))
+                        })}/>
+                    </div>
+                );
             }) }
         </div>
     );
