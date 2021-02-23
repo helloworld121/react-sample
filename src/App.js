@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {useState, useEffect} from 'react';
 import Item from './Item';
+import TodoList from './TodoList';
 
 const App = () => {
   // setName triggers re-rendering => like change detection => there is no other possibility
@@ -26,6 +27,8 @@ const App = () => {
       <>
         <div>Hello {name + 'static'}</div>
         <Item />
+        <hr/>
+        <TodoList/>
       </>
   );
 }
