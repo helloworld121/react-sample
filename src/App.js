@@ -1,12 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react';
 
 const App = () => {
-  let name = 'World';
+  // mit setName triggered man das rerendern
+  const[name, setName] = useState('World');
 
   // hier wird kein dynamisches Binding verwendet
   setTimeout(() => {
-    name = 'Peter';
+    setName('Peter');
     console.log('Async done');
   }, 1000);
 
