@@ -1,19 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 const App = () => {
-  // mit setName triggered man das rerendern
+  // setName triggers re-rendering => like change detection => there is no other possibility
+  // useState creates a local component-state
   const[name, setName] = useState('World');
 
-  // hier wird kein dynamisches Binding verwendet
-  setTimeout(() => {
-    setName('Peter');
-    console.log('Async done');
-  }, 1000);
+  // lifecycle-hook => compared to NgOnInit
+  // the rendering process consists out of two steps => pre-commit, commit
+  useEffect(() => {
+    setTimeout(() => {
+      setName('Peter');
+      console.log('Async done');
+    }, 1000);
+  }, []); // the array displays the dependencies
 
-  // JSX => { => aktiviert JavaScript
-  return <div>Hello {name + 1}</div>
+
+
+  // JSX => "{}" => activates JavaScript
+  return <div>Hello {name + 'static'}</div>
 }
 
 export default App;
