@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {useState, useEffect} from 'react';
+import Item from './Item';
 
 const App = () => {
   // setName triggers re-rendering => like change detection => there is no other possibility
@@ -19,7 +20,14 @@ const App = () => {
 
 
   // JSX => "{}" => activates JavaScript
-  return <div>Hello {name + 'static'}</div>
+  // to don't blow the DOM we can use the wrapping tag "<></>"
+  // "<></>" is equal to "<React.Fragment></React.Fragment>" it is an alias
+  return (
+      <>
+        <div>Hello {name + 'static'}</div>
+        <Item />
+      </>
+  );
 }
 
 export default App;
