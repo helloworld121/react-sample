@@ -1,5 +1,6 @@
 import TodoForm from './TodoForm';
 import useTodos from "./useTodos";
+import TodoListItem from "./TodoListItem";
 
 
 const TodoList = () => {
@@ -14,10 +15,7 @@ const TodoList = () => {
                 // react uses the "key"-prop to save resources
                 // => if it rerenderes a component it will check based on the key if an element was changed
                 return (
-                    <div key={todo.id}>
-                        {todo.title}
-                        <input type="checkbox" checked={todo.done} onChange={() => toggleState(todo)}/>
-                    </div>
+                    <TodoListItem todo={todo} toggleState={toggleState} key={todo.id}/>
                 );
             }) }
         </div>
