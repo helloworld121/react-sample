@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import TodoForm from './TodoForm';
 
 const data = [
     {id: 1, title: 'get up', done: true},
@@ -19,27 +20,29 @@ const TodoList = () => {
     }, []);
 
 
-    const [newTodo, setNewTodo] = useState('');
+    function handleSave(todo) {
+        const myBrandNewTodo = {
+            ...todo,
+            id: Math.max(...todos.map(t => t.id)) + 1,
+        }
+        // to make sure the state we change is the current one => and it wasn't change in between
+        setTodos((prevState) => [...prevState, myBrandNewTodo]);
+    }
+
+    function toggleState(todo) {
+        console.log('toggleState');
+        setTodos((prevState) => prevState.map(t => {
+            if(t.id === todo.id ) {
+                // t.done = !t.done;
+                t = {...t, done: !t.done}
+            }
+            return t;
+        }));
+    }
 
     return (
         <div>
-            <h3>Neue Todo:</h3>
-            {/* there is no automatically two-way-databinding */}
-            <input type="text" value={newTodo} onChange={(event => {
-                const value = event.currentTarget.value;
-                setNewTodo(value);
-            })}/>
-            <button onClick={() => {
-                const myBrandNewTodo = {
-                    // id: Math.max.apply(todos.map(t => t.id)) + 1,
-                    id: Math.max(...todos.map(t => t.id)) + 1,
-                    title: newTodo,
-                    done: false,
-                }
-                // to make sure the state we change is the current one => and it wasn't change in between
-                setTodos((prevState) => [...prevState, myBrandNewTodo]);
-                setNewTodo('');
-            }}>Ok</button>
+            <TodoForm onSave={handleSave}/>
 
             {todos.map((todo) => {
                 // react uses the "key"-prop to save resources
@@ -47,15 +50,7 @@ const TodoList = () => {
                 return (
                     <div key={todo.id}>
                         {todo.title}
-                        <input type="checkbox" checked={todo.done} onChange={(event => {
-                            const checked = event.currentTarget.checked;
-                            setTodos((prevState) => prevState.map(t => {
-                                if(t.id === todo.id ) {
-                                    t.done = checked;
-                                }
-                                return t;
-                            }))
-                        })}/>
+                        <input type="checkbox" checked={todo.done} onChange={(event => toggleState(todo))}/>
                     </div>
                 );
             }) }
