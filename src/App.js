@@ -15,6 +15,8 @@ const App = () => {
 
     const [stockNames, setStockNames] = useState([]);
 
+    const [refreshStocks, setRefreshStocks] = useState('');
+
 
     const addStockName = (stockName) => {
         console.log(`addStockname '${stockName}'`);
@@ -26,15 +28,22 @@ const App = () => {
   return (
       <Router>
 
-          <Header/>
+          <Header onRefreshStocks={setRefreshStocks}/>
 
           <main style={{ marginTop: '3rem' }}>
               <div className="container">
 
                   {/* Switch decides that just one Route is going to be rendered */}
                   <Switch>
-                      <Route path="/new" ><NewStock onAddStockName={(stockName) => addStockName(stockName)}></NewStock></Route>
-                      <Route path="/" ><Stocks></Stocks></Route>
+                      <Route path="/new" >
+                          <NewStock
+                              onAddStockName={(stockName) => addStockName(stockName)}></NewStock>
+                      </Route>
+                      <Route path="/" >
+                          <Stocks
+                              stockNames={stockNames}
+                              refreshStocks={refreshStocks}></Stocks>
+                      </Route>
                   </Switch>
 
               </div>

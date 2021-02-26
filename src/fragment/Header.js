@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-const Header = () => {
+const Header = ({onRefreshStocks}) => {
     return (
         <header>
             <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -13,7 +13,7 @@ const Header = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarCollapse">
                         <ul className="navbar-nav me-auto mb-2 mb-md-0">
-                            <li className="nav-item">
+                            <li className="nav-item" onClick={() => onRefreshStocks(Math.random())}>
                                 <Link className="nav-link active" aria-current="page" to="/">Aktualisieren</Link>
                             </li>
                             <li className="nav-item">

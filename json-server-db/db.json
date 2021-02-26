@@ -1,0 +1,74 @@
+{
+  "stocks": [
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft Corporation",
+      "change": "+9.67",
+      "currency": "USD",
+      "lastTradeDate": "02/26/2021",
+      "lastTradePriceOnly": "6.60",
+      "changeinPercent": "+0.00%",
+      "lastTradeTime": "11:55am"
+    },
+    {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "change": "+1.50",
+      "currency": "USD",
+      "lastTradeDate": "02/26/2021",
+      "lastTradePriceOnly": "39.43",
+      "changeinPercent": "+0.89%",
+      "lastTradeTime": "11:55am"
+    },
+    {
+      "symbol": "GOOGL",
+      "name": "Alphabet Inc.",
+      "change": "-4.73",
+      "currency": "USD",
+      "lastTradeDate": "02/26/2021",
+      "lastTradePriceOnly": "381.13",
+      "changeinPercent": "-0.81%",
+      "lastTradeTime": "11:55am"
+    },
+    {
+      "symbol": "YHOO",
+      "name": "Yahoo Inc.",
+      "change": "+2.01",
+      "currency": "USD",
+      "lastTradeDate": "02/26/2021",
+      "lastTradePriceOnly": "356.34",
+      "changeinPercent": "+0.78%",
+      "lastTradeTime": "11:55am"
+    },
+    {
+      "symbol": "DAX",
+      "name": "Horizons DAX Germany ETF",
+      "change": "+9.43",
+      "currency": "USD",
+      "lastTradeDate": "02/26/2021",
+      "lastTradePriceOnly": "76.15",
+      "changeinPercent": "+0.13%",
+      "lastTradeTime": "11:55am"
+    },
+    {
+      "symbol": "INTC",
+      "name": "Intel Corporation",
+      "change": "+1.71",
+      "currency": "USD",
+      "lastTradeDate": "02/26/2021",
+      "lastTradePriceOnly": "839.88",
+      "changeinPercent": "+0.30%",
+      "lastTradeTime": "11:55am"
+    },
+    {
+      "symbol": "FB2A",
+      "name": "Facebook Inc.",
+      "change": "+3.05",
+      "currency": "USD",
+      "lastTradeDate": "02/26/2021",
+      "lastTradePriceOnly": "90.42",
+      "changeinPercent": "+0.01%",
+      "lastTradeTime": "11:55am"
+    }
+  ]
+}
